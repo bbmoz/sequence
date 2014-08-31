@@ -24,7 +24,6 @@ public class NodeBehavior : MonoBehaviour {
 	// successive nodes
 	void OnMouseOver() {
 		if (GameManager.dragging && GameManager.nodes.Count > 0 && renderer.material.color != GameManager.newColor) {
-			print(GameManager.nodes.Count);
 			renderer.material.color = GameManager.newColor;
 			GameManager.nodes.Add(gameObject);
 		}
@@ -35,5 +34,14 @@ public class NodeBehavior : MonoBehaviour {
 			node.renderer.material.color = GameManager.oldColor;
 		}
 		GameManager.dragging = false;
+		GameManager.nodes.Clear();
+
+		// remove all clones of linerenderer
+		foreach (Object clone in GameObject.FindGameObjectsWithTag("linerenderer")) {
+			if (clone.name.Equals("LineRenderer(Clone)")) {
+				Destroy(clone);
+			}
+		}
+		GameManager.countTemp = 0;
 	}
 }
