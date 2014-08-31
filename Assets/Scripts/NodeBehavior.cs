@@ -10,7 +10,6 @@ public class NodeBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	// first node
