@@ -50,9 +50,6 @@ public class NodeBehavior : MonoBehaviour {
 			//if( Vector3.Distance(gameObject.transform.position, GameManager.lastNode.transform.position) <= 2^.5)
 			//print(gameObject.transform.position);
 
-			renderer.material.color = GameManager.newColor;
-			GameManager.nodes.Add(gameObject);
-
 		}
 	}
 
