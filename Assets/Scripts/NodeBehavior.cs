@@ -18,7 +18,7 @@ public class NodeBehavior : MonoBehaviour {
 		if (renderer.material.color != GameManager.newColor) {
 			GameManager.dragging = true;
 			renderer.material.color = GameManager.newColor;
-			GameManager.nodes.Add (gameObject);
+			GameManager.nodes.Add(gameObject);
 		}
 	}
 
