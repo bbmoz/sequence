@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public static bool dragging;
 
+	public static GameObject lastNode;
+
 	// Use this for initialization
 	void Start () {
 		dragging = false;
