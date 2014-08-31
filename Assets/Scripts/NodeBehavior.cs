@@ -15,14 +15,17 @@ public class NodeBehavior : MonoBehaviour {
 
 	// first node
 	void OnMouseDrag() {
-		GameManager.dragging = true;
-		renderer.material.color = GameManager.newColor;
-		GameManager.nodes.Add(gameObject);
+		if (renderer.material.color != GameManager.newColor) {
+			GameManager.dragging = true;
+			renderer.material.color = GameManager.newColor;
+			GameManager.nodes.Add (gameObject);
+		}
 	}
 
 	// successive nodes
 	void OnMouseOver() {
-		if (GameManager.dragging && GameManager.nodes.Count > 0) {
+		if (GameManager.dragging && GameManager.nodes.Count > 0 && renderer.material.color != GameManager.newColor) {
+			print(GameManager.nodes.Count);
 			renderer.material.color = GameManager.newColor;
 			GameManager.nodes.Add(gameObject);
 		}
