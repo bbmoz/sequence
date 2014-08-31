@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (nodes.Count > countTemp && nodes.Count>1) {
+		if (nodes.Count>countTemp && nodes.Count>1) {
 			countTemp = nodes.Count;
 			lineRenderer.SetPosition(0, (nodes[nodes.Count-2] as GameObject).transform.position);
 			lineRenderer.SetPosition(1, (nodes[nodes.Count-1] as GameObject).transform.position);
