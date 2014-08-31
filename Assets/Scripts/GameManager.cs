@@ -14,12 +14,16 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public static bool dragging;
 
+
+	public static GameObject lastNode;
+
 	public LineRenderer lineRenderer;
 
 	private GameObject[] nodesArray;
 
 	[HideInInspector]
 	public static int countTemp;
+
 
 	// Use this for initialization
 	void Start () {
