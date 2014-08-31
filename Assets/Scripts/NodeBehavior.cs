@@ -12,4 +12,26 @@ public class NodeBehavior : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	// first node
+	void OnMouseDrag() {
+		GameManager.dragging = true;
+		renderer.material.color = GameManager.newColor;
+		GameManager.nodes.Add(gameObject);
+	}
+
+	// successive nodes
+	void OnMouseOver() {
+		if (GameManager.dragging && GameManager.nodes.Count > 0) {
+			renderer.material.color = GameManager.newColor;
+			GameManager.nodes.Add(gameObject);
+		}
+	}
+
+	void OnMouseUp() {
+		foreach (GameObject node in GameManager.nodes) {
+			node.renderer.material.color = GameManager.oldColor;
+		}
+		GameManager.dragging = false;
+	}
 }
