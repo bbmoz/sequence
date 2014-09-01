@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
 
 	public static GameObject lastNode;
 
+	public static int direction = 0;
+
 	public LineRenderer lineRenderer;
 
 	private GameObject[] nodesArray;
