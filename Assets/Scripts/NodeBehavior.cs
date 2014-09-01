@@ -66,6 +66,10 @@ public class NodeBehavior : MonoBehaviour {
 				node.GetComponent<NumberRandomization>().randomlyGenerateNumber();
 			}
 		}
+
+		// calculate score
+		ScoreBox.CalculateScore();
+
 		GameManager.dragging = false;
 		GameManager.nodes.Clear();
 
