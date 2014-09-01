@@ -24,11 +24,16 @@ public class GameManager : MonoBehaviour {
 	[HideInInspector]
 	public static int countTemp;
 
+	[HideInInspector]
+	public static int score;
+
 
 	// Use this for initialization
 	void Start () {
 		dragging = false;
 		countTemp = 0;
+		score = 0;
+		nodes.Clear();
 	}
 	
 	// Update is called once per frame
