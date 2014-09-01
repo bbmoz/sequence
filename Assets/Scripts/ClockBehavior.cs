@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ClockBehavior : MonoBehaviour {
 
-	public int timeToComplete = 90;
+	private int timeToComplete = 60;
 	
 	// Use this for initialization
 	void Start () {
@@ -19,6 +19,11 @@ public class ClockBehavior : MonoBehaviour {
 		{
 			fractionComplete += rate * Time.deltaTime;
 			gameObject.renderer.material.SetFloat("_Cutoff", fractionComplete);
+
+			if(fractionComplete >= 1) {
+				Application.LoadLevel("gameoverscreen");
+			}
+
 			yield return 0;
 		}
 	}
