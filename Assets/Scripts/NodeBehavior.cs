@@ -17,13 +17,12 @@ public class NodeBehavior : MonoBehaviour {
 		if (renderer.material.color != GameManager.newColor) {
 			GameManager.dragging = true;
 			renderer.material.color = GameManager.newColor;
-
 			GameManager.nodes.Add (gameObject);
 			GameManager.lastNode = gameObject;
 			print(gameObject.transform.position);
-
-
 			GameManager.nodes.Add(gameObject);
+
+
 
 		}
 	}
@@ -31,25 +30,30 @@ public class NodeBehavior : MonoBehaviour {
 	// successive nodes
 	void OnMouseOver() {
 		if (GameManager.dragging && GameManager.nodes.Count > 0 && renderer.material.color != GameManager.newColor) {
-
-			//print(GameManager.nodes.Count);
-
-//			print (gameObject.transform.position);
-//			print (GameManager.lastNode.transform.position);
-//			print (Vector3.Distance(gameObject.transform.position, GameManager.lastNode.transform.position));
 			if( Vector3.Distance(gameObject.transform.position, GameManager.lastNode.transform.position) <= 1.5) {
-				renderer.material.color = GameManager.newColor;
-				GameManager.nodes.Add(gameObject);
-				GameManager.lastNode = gameObject;
+				int lastNodeTexture = int.Parse(GameManager.lastNode.tag);
+				int currNodeTexture = int.Parse(gameObject.renderer.tag);
+
+				if(GameManager.direction == 0) {
+					if(lastNodeTexture - currNodeTexture == 1)
+					{
+						//Allows for reverse sequences i.e 6,5,4,3,2,1.
+						//GameManager.direction = -1;
+					}
+					else if(lastNodeTexture - currNodeTexture == -1)
+					{
+						GameManager.direction = 1;
+					}
+				}
+
+				if(GameManager.direction != 0) {
+					if( lastNodeTexture - currNodeTexture + GameManager.direction == 0) {
+						renderer.material.color = GameManager.newColor;
+						GameManager.nodes.Add(gameObject);
+						GameManager.lastNode = gameObject;
+					}
+				}
 			}
-//			foreach (GameObject node in GameManager.nodes) {
-//				print(node.renderer.material.mainTexture);
-//			}
-
-
-			//if( Vector3.Distance(gameObject.transform.position, GameManager.lastNode.transform.position) <= 2^.5)
-			//print(gameObject.transform.position);
-
 		}
 	}
 
@@ -57,7 +61,10 @@ public class NodeBehavior : MonoBehaviour {
 		foreach (GameObject node in GameManager.nodes) {
 			node.renderer.material.color = GameManager.oldColor;
 			// remove and repopulate selected nodes
-			node.GetComponent<NumberRandomization>().randomlyGenerateNumber();
+			if (GameManager.nodes.Count > 2) {
+				print (GameManager.nodes.Count);
+				node.GetComponent<NumberRandomization>().randomlyGenerateNumber();
+			}
 		}
 		GameManager.dragging = false;
 		GameManager.nodes.Clear();
@@ -69,5 +76,6 @@ public class NodeBehavior : MonoBehaviour {
 			}
 		}
 		GameManager.countTemp = 0;
+		GameManager.direction = 0;
 	}
 }

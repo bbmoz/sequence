@@ -17,9 +17,9 @@ public class GameManager : MonoBehaviour {
 
 	public static GameObject lastNode;
 
-	public LineRenderer lineRenderer;
+	public static int direction = 0;
 
-	private GameObject[] nodesArray;
+	public LineRenderer lineRenderer;
 
 	[HideInInspector]
 	public static int countTemp;
