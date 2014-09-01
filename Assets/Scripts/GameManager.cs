@@ -21,8 +21,6 @@ public class GameManager : MonoBehaviour {
 
 	public LineRenderer lineRenderer;
 
-	private GameObject[] nodesArray;
-
 	[HideInInspector]
 	public static int countTemp;
 

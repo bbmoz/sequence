@@ -8,14 +8,18 @@ public class NumberRandomization : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		// Set a random texture onto the node
-		int pos = Random.Range(0,6);
-		renderer.material.mainTexture = NumberTextures[pos];
-		tag = (pos + 1).ToString();
+		randomlyGenerateNumber();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
+	}
+
+	public void randomlyGenerateNumber() {
+		// Set a random texture onto the node
+		int pos = Random.Range(0,6);
+		renderer.material.mainTexture = NumberTextures[pos];
+		tag = (pos + 1).ToString();
 	}
 }
