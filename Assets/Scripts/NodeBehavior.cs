@@ -56,6 +56,8 @@ public class NodeBehavior : MonoBehaviour {
 	void OnMouseUp() {
 		foreach (GameObject node in GameManager.nodes) {
 			node.renderer.material.color = GameManager.oldColor;
+			// remove and repopulate selected nodes
+			node.GetComponent<NumberRandomization>().randomlyGenerateNumber();
 		}
 		GameManager.dragging = false;
 		GameManager.nodes.Clear();
