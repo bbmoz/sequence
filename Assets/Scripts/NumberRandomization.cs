@@ -15,6 +15,17 @@ public class NumberRandomization : MonoBehaviour {
 	void Update () {
 	
 	}
+	// Subscripes randomlyGenerateNumber() to OnPress event
+	void OnEnable()
+	{
+		ButtonEventRefreshNodes.OnPress += randomlyGenerateNumber;
+	}
+	
+	// Unsubscripes randomlyGenerateNumber() to OnPress event
+	void OnDisable()
+	{
+		ButtonEventRefreshNodes.OnPress -= randomlyGenerateNumber;
+	}
 
 	public void randomlyGenerateNumber() {
 		// Set a random texture onto the node

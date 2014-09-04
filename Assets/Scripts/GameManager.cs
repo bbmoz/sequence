@@ -34,8 +34,10 @@ public class GameManager : MonoBehaviour {
 		for (int i=0; i<rows; i++) {
 			for (int j=0; j<cols; j++) {
 				spawnGrid[j,i] = Instantiate(node, new Vector3(j,i,0.0f)+offset, Quaternion.Euler(0,0,180)) as GameObject;
+				print("j="+j+", i="+i+spawnGrid[j,i]);
 			}
 		}
+
 	}
 	
 	// Update is called once per frame
@@ -47,4 +49,12 @@ public class GameManager : MonoBehaviour {
 			Instantiate(lineRenderer);
 		}
 	}
+
+	// 
+	void DecayNode () {
+		spawnGrid[0,0].
+	}
+
+
+
 }
