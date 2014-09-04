@@ -49,12 +49,4 @@ public class GameManager : MonoBehaviour {
 			Instantiate(lineRenderer);
 		}
 	}
-
-	// 
-	void DecayNode () {
-		spawnGrid[0,0].
-	}
-
-
-
 }
